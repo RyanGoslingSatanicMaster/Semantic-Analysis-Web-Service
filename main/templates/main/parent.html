@@ -1,0 +1,49 @@
+{% extends 'main/index.html' %}
+
+{% block posts %}
+{% for i in parent %}
+    <div class="wrapper">
+          <div class="course container">
+              <a href="{{ i.url }}">
+                  <div class="title_school item">
+                      {% if i.site_name is None %}
+                            {% if i.salary is not None %}
+                            <h5>от {{ i.salary }} руб.</h5>
+                                {% endif %}
+                        {% else %}
+                            <h5>{{ i.site_name }}</h5>
+                            {% endif %}
+                  </div>
+                  <div class="title item">
+                      <h4>{{ i.title }}</h4>
+                  </div>
+                  <div class="description item">
+                      {{ i.content |safe}}
+                    </div>
+              </a>
+          </div>
+        <div class="list_vacancy container">
+            {% for v in child %}
+                {% if i.cluster == v.cluster %}
+                    <div class="item vacancy">
+                    <a href="{{ v.url }}">
+                        <div class="salary item">
+                        {% if v.site_name is None %}
+                            {% if v.salary is not None %}
+                            <h6>от {{ v.salary }} руб.</h6>
+                                {% endif %}
+                        {% else %}
+                            <h6>{{ v.site_name }}</h6>
+                            {% endif %}
+                        </div>
+                        <div class="title item">
+                            <h5>{{ v.title}}</h5>
+                        </div>
+                    </a>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="../../static/style.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+<header>
+    <h1>
+      JobBridge
+    </h1>
+  <nav am-layout="horizontal">
+  <a class="menu" href="/">Курсы</a>
+  <a class="menu" href="/vacancy">Вакансии</a>
+  <a class="menu" href="/about-us">О нас</a>
+  </nav>
+</header>
+<main>
+    {% block posts %}
+    {% endblock %}
+</main>
+</body>
+</html>
